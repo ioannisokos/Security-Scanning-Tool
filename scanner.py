@@ -20,23 +20,21 @@ def classify_risk(port, service, banner):
     if service == "http" and (not banner or banner.lower() == "unknown"):
         return "LOW"
 
-    # Unknown service but banner exists → interesting
+    # Unknown service but banner exists 
     if service == "unknown" and banner:
         return "INVESTIGATE"
 
     return "INFO"
 
-# --------------------------
 # Logging config
-# --------------------------
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s"
 )
 
-# --------------------------
 # Port Scanner
-# --------------------------
+
 def scan_port(target, port, timeout=1):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(timeout)
@@ -70,9 +68,8 @@ def scan_port(target, port, timeout=1):
 
     return None
 
-# --------------------------
 # Banner Grabbing
-# --------------------------
+
 def grab_banner(ip, port):
     sock = socket.socket()
     sock.settimeout(1)
@@ -93,9 +90,8 @@ def grab_banner(ip, port):
 
     return None
 
-# --------------------------
 # HTTP Check
-# --------------------------
+
 def http_check(target):
     try:
         r = requests.get(f"http://{target}", timeout=2)
@@ -110,9 +106,8 @@ def http_check(target):
 
     return None
 
-# --------------------------
 # Generate HTML Report
-# --------------------------
+
 def generate_report(results, target, output_file):
     template = """
     <html>
@@ -139,9 +134,8 @@ def generate_report(results, target, output_file):
     with open(output_file, "w") as f:
         f.write(html)
 
-# --------------------------
 # Main
-# --------------------------
+
 def main():
     parser = argparse.ArgumentParser(description="Mini Security Scanner")
     parser.add_argument("--target", required=True, help="Target IP or domain")
@@ -182,3 +176,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
