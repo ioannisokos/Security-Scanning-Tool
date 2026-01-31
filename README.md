@@ -31,21 +31,6 @@ Risk levels are **contextual**, not technical severity.
 
 ---
 
-## What it does NOT do
-
-This tool **does NOT**:
-- Perform vulnerability scanning
-- Search for CVEs
-- Exploit services
-- Bypass authentication
-- Perform brute-force attacks
-- Guarantee accuracy or completeness
-- Replace professional security tools (e.g. Nmap, Nessus)
-
-All classifications are **heuristic and intentionally simple**.
-
----
-
 ## Disclaimer
 
 ⚠️ **Lab and educational use only**
