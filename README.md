@@ -31,6 +31,11 @@ Risk levels are **contextual**, not technical severity.
 
 ---
 
+## How it works
+python scanner.py --target <IP> --output report.html
+
+---
+
 ## Disclaimer
 
 ⚠️ **Lab and educational use only**
